@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDropdowns();
   initStatsCounters();
   initServicePreselect();
+  initMobileNav();
   initThemeToggle();
 });
 
@@ -87,18 +88,132 @@ function initDropdowns() {
 }
 
 function initThemeToggle() {
-  const btn = document.getElementById('theme-toggle');
-  if (!btn) return;
+  const btns = document.querySelectorAll('.theme-toggle');
+  if (!btns.length) return;
 
-  btn.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (isLight) {
-      document.documentElement.removeAttribute('data-theme');
-      try { localStorage.setItem('festus-theme', 'dark'); } catch (e) {}
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      try { localStorage.setItem('festus-theme', 'light'); } catch (e) {}
+  btns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      if (isLight) {
+        document.documentElement.removeAttribute('data-theme');
+        try { localStorage.setItem('festus-theme', 'dark'); } catch (e) {}
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        try { localStorage.setItem('festus-theme', 'light'); } catch (e) {}
+      }
+    });
+  });
+}
+
+function initMobileNav() {
+  const header = document.querySelector('.site-header');
+  const navEl = document.querySelector('.site-nav');
+  const contactItem = document.querySelector('.header-actions .nav-item');
+  if (!header || !navEl) return;
+
+  const menuBtn = document.createElement('button');
+  menuBtn.type = 'button';
+  menuBtn.className = 'mobile-menu-btn';
+  menuBtn.setAttribute('aria-label', 'Open menu');
+  menuBtn.setAttribute('aria-expanded', 'false');
+  menuBtn.innerHTML = '<span class="bar"></span><span class="bar"></span><span class="bar"></span>';
+  header.appendChild(menuBtn);
+
+  const overlay = document.createElement('div');
+  overlay.className = 'mobile-nav-overlay';
+
+  const panel = document.createElement('div');
+  panel.className = 'mobile-nav-panel';
+
+  const panelHead = document.createElement('div');
+  panelHead.className = 'mobile-nav-head';
+  const brandEl = document.querySelector('.brand');
+  if (brandEl) panelHead.appendChild(brandEl.cloneNode(true));
+  const closeBtn = document.createElement('button');
+  closeBtn.type = 'button';
+  closeBtn.className = 'mobile-nav-close';
+  closeBtn.setAttribute('aria-label', 'Close menu');
+  closeBtn.innerHTML = '&times;';
+  panelHead.appendChild(closeBtn);
+  panel.appendChild(panelHead);
+
+  const list = document.createElement('div');
+  list.className = 'mobile-nav-list';
+
+  Array.from(navEl.children).forEach((child) => {
+    if (child.classList.contains('nav-link')) {
+      const a = child.cloneNode(true);
+      a.classList.add('mobile-nav-link');
+      list.appendChild(a);
+    } else if (child.classList.contains('nav-item')) {
+      const link = child.querySelector('a.nav-link');
+      if (link) {
+        const a = link.cloneNode(true);
+        a.classList.add('mobile-nav-link');
+        list.appendChild(a);
+      }
+      const sub = document.createElement('div');
+      sub.className = 'mobile-nav-sublist';
+      child.querySelectorAll('.nav-dropdown a').forEach((a) => {
+        sub.appendChild(a.cloneNode(true));
+      });
+      list.appendChild(sub);
     }
+  });
+
+  panel.appendChild(list);
+
+  const divider = document.createElement('div');
+  divider.className = 'mobile-nav-divider';
+  panel.appendChild(divider);
+
+  if (contactItem) {
+    const contactLink = contactItem.querySelector('a.btn-primary');
+    if (contactLink) {
+      const btn = contactLink.cloneNode(true);
+      btn.className = 'btn btn-primary mobile-contact-btn';
+      panel.appendChild(btn);
+    }
+
+    const socials = document.createElement('div');
+    socials.className = 'mobile-nav-socials';
+    contactItem.querySelectorAll('.nav-dropdown a').forEach((a) => {
+      socials.appendChild(a.cloneNode(true));
+    });
+    panel.appendChild(socials);
+  }
+
+  const themeRow = document.createElement('button');
+  themeRow.type = 'button';
+  themeRow.className = 'theme-toggle mobile-theme-toggle';
+  themeRow.setAttribute('aria-label', 'Toggle light and dark mode');
+  themeRow.innerHTML = '<span class="icon-sun" aria-hidden="true">☀</span><span class="icon-moon" aria-hidden="true">☾</span><span class="mobile-theme-label">Theme</span>';
+  panel.appendChild(themeRow);
+
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+
+  const openMenu = () => {
+    overlay.classList.add('open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('nav-open');
+  };
+  const closeMenu = () => {
+    overlay.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  };
+
+  menuBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeMenu();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+  panel.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', closeMenu);
   });
 }
 
