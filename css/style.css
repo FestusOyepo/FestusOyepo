@@ -1168,11 +1168,25 @@ a.service-card:hover {
   margin: 0 auto;
 }
 
+.hero-photo-lottie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 175%;
+  height: 175%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.6;
+  filter: blur(1px);
+  pointer-events: none;
+}
+
 .hero-photo-ring {
   position: absolute;
   inset: -12px;
   border-radius: 26px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .hero-photo-ring::before {
@@ -1193,6 +1207,7 @@ a.service-card:hover {
 
 .hero-photo-frame {
   position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   border-radius: 20px;
@@ -1211,6 +1226,7 @@ a.service-card:hover {
 
 .hero-photo-badge {
   position: absolute;
+  z-index: 2;
   bottom: -14px;
   left: 50%;
   white-space: nowrap;
