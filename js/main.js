@@ -5,7 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initServicePreselect();
   initMobileNav();
   initThemeToggle();
+  initHeroLottie();
 });
+
+function initHeroLottie() {
+  const el = document.getElementById('hero-lottie');
+  if (!el || typeof lottie === 'undefined') return;
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const anim = lottie.loadAnimation({
+    container: el,
+    renderer: 'svg',
+    loop: true,
+    autoplay: !prefersReduced,
+    path: 'assets/lottie/hero-blob.json',
+  });
+
+  if (prefersReduced) {
+    anim.addEventListener('DOMLoaded', () => anim.goToAndStop(0, true));
+  }
+}
 
 function initContactForm() {
   const form = document.getElementById('contact-form');
