@@ -593,6 +593,10 @@ main { flex: 1; }
   margin: 0 0 48px;
 }
 
+.page-head p:not(:last-child) {
+  margin-bottom: 14px;
+}
+
 /* ---------- Services grid (full) ---------- */
 
 .service-card {
