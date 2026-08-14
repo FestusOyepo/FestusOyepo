@@ -171,7 +171,7 @@ function initGrowthForm() {
     });
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (errorEl) errorEl.classList.add('hidden');
 
@@ -182,7 +182,10 @@ function initGrowthForm() {
     if (!nameInput.value.trim() || !emailOk) {
       current = total;
       render();
-      if (errorEl) errorEl.classList.remove('hidden');
+      if (errorEl) {
+        errorEl.textContent = 'Please fill in your name and a valid email before submitting.';
+        errorEl.classList.remove('hidden');
+      }
       return;
     }
 
@@ -190,8 +193,36 @@ function initGrowthForm() {
     new FormData(form).forEach((value, key) => { data[key] = value; });
     console.log('Growth plan intake submission:', data);
 
-    form.classList.add('hidden');
-    if (successPanel) successPanel.classList.remove('hidden');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+    }
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        form.classList.add('hidden');
+        if (successPanel) successPanel.classList.remove('hidden');
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      if (errorEl) {
+        errorEl.textContent = "Something went wrong sending that — please try again, or email me directly at Olawalefestus021@gmail.com.";
+        errorEl.classList.remove('hidden');
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit and Get My Free Growth Plan';
+      }
+    }
   });
 
   render();
