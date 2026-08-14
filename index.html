@@ -40,6 +40,7 @@
     <a class="nav-link" href="contact.html">Contact</a>
   </nav>
   <div class="header-actions">
+    <a class="btn btn-getstarted" href="index.html#growth-form">Get Started</a>
     <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark mode">
       <span class="icon-sun" aria-hidden="true">☀</span>
       <span class="icon-moon" aria-hidden="true">☾</span>
@@ -334,6 +335,207 @@
       <div class="dvd-logo"><img src="assets/logo-wehunt.jpeg" alt="WeHunt"></div>
       <div class="dvd-logo"><img src="assets/logo-locuszayn.jpeg" alt="Locus Zayn"></div>
       <div class="dvd-logo"><img src="assets/logo-ritzyx20.jpeg" alt="Ritzyx20"></div>
+    </div>
+  </section>
+
+  <section class="growth-form-section wrap" id="growth-form">
+    <div class="growth-form-head">
+      <h2>Let's Build Your Growth Plan</h2>
+      <p>Tell us about your channel and goals, we'll get back to you with a custom strategy.</p>
+    </div>
+
+    <div class="growth-form-wrap">
+      <div class="gf-progress" id="gf-progress">
+        <div class="gf-step active" data-step="1"><span class="gf-step-num">1</span><span class="gf-step-label">Channel</span></div>
+        <div class="gf-step" data-step="2"><span class="gf-step-num">2</span><span class="gf-step-label">Situation</span></div>
+        <div class="gf-step" data-step="3"><span class="gf-step-num">3</span><span class="gf-step-label">Goals</span></div>
+        <div class="gf-step" data-step="4"><span class="gf-step-num">4</span><span class="gf-step-label">Revenue</span></div>
+        <div class="gf-step" data-step="5"><span class="gf-step-num">5</span><span class="gf-step-label">Budget</span></div>
+        <div class="gf-step" data-step="6"><span class="gf-step-num">6</span><span class="gf-step-label">Contact</span></div>
+      </div>
+      <div class="gf-progress-bar"><div class="gf-progress-fill" id="gf-progress-fill"></div></div>
+
+      <div id="growth-success" class="gf-success hidden">
+        <div class="check">✓</div>
+        <h3>You're all set</h3>
+        <p>Thanks! We've received your details and will reach out within 24 hours with your custom growth plan.</p>
+      </div>
+
+      <form id="growth-form-el" class="gf-form" novalidate>
+
+        <div class="gf-fieldset active" data-fieldset="1">
+          <h3 class="gf-fieldset-title">About Your Channel</h3>
+          <div class="field">
+            <label for="gf-channel">Channel name / URL</label>
+            <input id="gf-channel" name="channelName" type="text" placeholder="e.g. youtube.com/@yourchannel">
+          </div>
+          <div class="field">
+            <label>Platform</label>
+            <div class="choice-group" data-name="platform">
+              <label class="choice-btn"><input type="radio" name="platform" value="YouTube"><span>YouTube</span></label>
+              <label class="choice-btn"><input type="radio" name="platform" value="Twitch"><span>Twitch</span></label>
+              <label class="choice-btn"><input type="radio" name="platform" value="Both"><span>Both</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="gf-subs">Current subscriber/follower count</label>
+            <input id="gf-subs" name="subCount" type="number" min="0" placeholder="e.g. 2500">
+          </div>
+          <div class="field">
+            <label for="gf-niche">Content niche/category</label>
+            <input id="gf-niche" name="niche" type="text" placeholder="e.g. Gaming, Tech, Lifestyle">
+          </div>
+          <div class="field">
+            <label for="gf-age">How long has the channel been active?</label>
+            <select id="gf-age" name="channelAge">
+              <option value="">Select one</option>
+              <option>Less than 6 months</option>
+              <option>6-12 months</option>
+              <option>1-2 years</option>
+              <option>2+ years</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>How often do you currently upload?</label>
+            <div class="choice-group" data-name="uploadFrequency">
+              <label class="choice-btn"><input type="radio" name="uploadFrequency" value="Daily"><span>Daily</span></label>
+              <label class="choice-btn"><input type="radio" name="uploadFrequency" value="Weekly"><span>Weekly</span></label>
+              <label class="choice-btn"><input type="radio" name="uploadFrequency" value="Monthly"><span>Monthly</span></label>
+              <label class="choice-btn"><input type="radio" name="uploadFrequency" value="Inconsistent"><span>Inconsistent</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="gf-fieldset" data-fieldset="2">
+          <h3 class="gf-fieldset-title">Current Situation</h3>
+          <div class="field">
+            <label>Is your channel currently monetized?</label>
+            <div class="choice-group" data-name="monetized">
+              <label class="choice-btn"><input type="radio" name="monetized" value="Yes"><span>Yes</span></label>
+              <label class="choice-btn"><input type="radio" name="monetized" value="No"><span>No</span></label>
+              <label class="choice-btn"><input type="radio" name="monetized" value="Applied but not approved"><span>Applied but not approved</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Are you Twitch Partner/Affiliate?</label>
+            <div class="choice-group" data-name="twitchStatus">
+              <label class="choice-btn"><input type="radio" name="twitchStatus" value="Partner"><span>Partner</span></label>
+              <label class="choice-btn"><input type="radio" name="twitchStatus" value="Affiliate"><span>Affiliate</span></label>
+              <label class="choice-btn"><input type="radio" name="twitchStatus" value="Neither yet"><span>Neither yet</span></label>
+              <label class="choice-btn"><input type="radio" name="twitchStatus" value="N/A — YouTube only"><span>N/A — I'm YouTube only</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Have you worked with a promoter/agency before?</label>
+            <div class="choice-group" data-name="workedWithAgency">
+              <label class="choice-btn"><input type="radio" name="workedWithAgency" value="Yes"><span>Yes</span></label>
+              <label class="choice-btn"><input type="radio" name="workedWithAgency" value="No"><span>No</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>What's your biggest challenge right now?</label>
+            <div class="choice-group" data-name="biggestChallenge" data-other="biggestChallengeOther">
+              <label class="choice-btn"><input type="radio" name="biggestChallenge" value="Low views"><span>Low views</span></label>
+              <label class="choice-btn"><input type="radio" name="biggestChallenge" value="Slow subscriber growth"><span>Slow subscriber growth</span></label>
+              <label class="choice-btn"><input type="radio" name="biggestChallenge" value="Inconsistent content"><span>Inconsistent content</span></label>
+              <label class="choice-btn"><input type="radio" name="biggestChallenge" value="Poor SEO/discoverability"><span>Poor SEO/discoverability</span></label>
+              <label class="choice-btn"><input type="radio" name="biggestChallenge" value="Don't know where to start"><span>Don't know where to start</span></label>
+              <label class="choice-btn"><input type="radio" name="biggestChallenge" value="Other"><span>Other</span></label>
+            </div>
+            <input type="text" class="field-other hidden" id="biggestChallengeOther" name="biggestChallengeOther" placeholder="Tell us more...">
+          </div>
+        </div>
+
+        <div class="gf-fieldset" data-fieldset="3">
+          <h3 class="gf-fieldset-title">Goals &amp; Objectives</h3>
+          <div class="field">
+            <label>What's your main goal?</label>
+            <div class="choice-group" data-name="mainGoal" data-other="mainGoalOther">
+              <label class="choice-btn"><input type="radio" name="mainGoal" value="Grow subscribers"><span>Grow subscribers</span></label>
+              <label class="choice-btn"><input type="radio" name="mainGoal" value="Increase views"><span>Increase views</span></label>
+              <label class="choice-btn"><input type="radio" name="mainGoal" value="Monetize faster"><span>Monetize faster</span></label>
+              <label class="choice-btn"><input type="radio" name="mainGoal" value="Improve SEO/discoverability"><span>Improve SEO/discoverability</span></label>
+              <label class="choice-btn"><input type="radio" name="mainGoal" value="Full channel management"><span>Full channel management</span></label>
+              <label class="choice-btn"><input type="radio" name="mainGoal" value="Other"><span>Other</span></label>
+            </div>
+            <input type="text" class="field-other hidden" id="mainGoalOther" name="mainGoalOther" placeholder="Tell us more...">
+          </div>
+          <div class="field">
+            <label for="gf-success">What does success look like in 6 months?</label>
+            <textarea id="gf-success" name="successDefinition" rows="4" placeholder="Describe your vision..."></textarea>
+          </div>
+          <div class="field">
+            <label>How soon are you looking to get started?</label>
+            <div class="choice-group" data-name="timeline">
+              <label class="choice-btn"><input type="radio" name="timeline" value="Immediately"><span>Immediately</span></label>
+              <label class="choice-btn"><input type="radio" name="timeline" value="Within 2 weeks"><span>Within 2 weeks</span></label>
+              <label class="choice-btn"><input type="radio" name="timeline" value="Within a month"><span>Within a month</span></label>
+              <label class="choice-btn"><input type="radio" name="timeline" value="Just exploring"><span>Just exploring</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="gf-fieldset" data-fieldset="4">
+          <h3 class="gf-fieldset-title">Revenue Target</h3>
+          <div class="field">
+            <label>How much monthly revenue are you aiming to generate from this channel?</label>
+            <div class="choice-group" data-name="revenueTarget" data-other="revenueTargetOther">
+              <label class="choice-btn"><input type="radio" name="revenueTarget" value="Under $1,000/month"><span>Under $1,000/month</span></label>
+              <label class="choice-btn"><input type="radio" name="revenueTarget" value="$1,000-$5,000/month"><span>$1,000-$5,000/month</span></label>
+              <label class="choice-btn"><input type="radio" name="revenueTarget" value="$5,000-$10,000/month"><span>$5,000-$10,000/month</span></label>
+              <label class="choice-btn"><input type="radio" name="revenueTarget" value="$10,000+/month"><span>$10,000+/month</span></label>
+              <label class="choice-btn"><input type="radio" name="revenueTarget" value="Other"><span>Other</span></label>
+            </div>
+            <input type="text" class="field-other hidden" id="revenueTargetOther" name="revenueTargetOther" placeholder="Enter a custom amount...">
+          </div>
+        </div>
+
+        <div class="gf-fieldset" data-fieldset="5">
+          <h3 class="gf-fieldset-title">Budget</h3>
+          <div class="field">
+            <label>How much are you looking to invest in this project?</label>
+            <div class="choice-group" data-name="budget" data-other="budgetOther">
+              <label class="choice-btn"><input type="radio" name="budget" value="$1,000"><span>A. $1,000</span></label>
+              <label class="choice-btn"><input type="radio" name="budget" value="$2,000"><span>B. $2,000</span></label>
+              <label class="choice-btn"><input type="radio" name="budget" value="$3,500"><span>C. $3,500</span></label>
+              <label class="choice-btn"><input type="radio" name="budget" value="$5,000+"><span>D. $5,000+</span></label>
+              <label class="choice-btn"><input type="radio" name="budget" value="Other"><span>Other</span></label>
+            </div>
+            <input type="text" class="field-other hidden" id="budgetOther" name="budgetOther" placeholder="Enter a custom budget...">
+          </div>
+        </div>
+
+        <div class="gf-fieldset" data-fieldset="6">
+          <h3 class="gf-fieldset-title">Contact Info</h3>
+          <div class="field">
+            <label for="gf-name">Name <span class="req">*</span></label>
+            <input id="gf-name" name="fullName" type="text" required>
+          </div>
+          <div class="field">
+            <label for="gf-email">Email <span class="req">*</span></label>
+            <input id="gf-email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="gf-phone">Phone/WhatsApp</label>
+            <input id="gf-phone" name="phone" type="text" placeholder="Optional">
+          </div>
+          <div class="field">
+            <label>Preferred contact method</label>
+            <div class="choice-group" data-name="contactMethod">
+              <label class="choice-btn"><input type="radio" name="contactMethod" value="Email"><span>Email</span></label>
+              <label class="choice-btn"><input type="radio" name="contactMethod" value="WhatsApp"><span>WhatsApp</span></label>
+              <label class="choice-btn"><input type="radio" name="contactMethod" value="Call"><span>Call</span></label>
+            </div>
+          </div>
+          <p id="gf-error" class="form-error hidden">Please fill in your name and a valid email before submitting.</p>
+        </div>
+
+        <div class="gf-nav">
+          <button type="button" class="btn btn-outline gf-back hidden" id="gf-back">← Back</button>
+          <button type="button" class="btn btn-primary gf-next" id="gf-next">Next →</button>
+          <button type="submit" class="btn btn-primary gf-submit hidden" id="gf-submit">Submit and Get My Free Growth Plan</button>
+        </div>
+      </form>
     </div>
   </section>
 

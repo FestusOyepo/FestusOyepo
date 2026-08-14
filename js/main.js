@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initHeroLottie();
   initDvdBounce();
+  initGrowthForm();
 });
 
 function initDvdBounce() {
@@ -101,6 +102,99 @@ function initDvdBounce() {
       });
     }, 150);
   });
+}
+
+function initGrowthForm() {
+  const form = document.getElementById('growth-form-el');
+  if (!form) return;
+
+  const wrap = form.closest('.growth-form-wrap');
+  const fieldsets = Array.from(form.querySelectorAll('.gf-fieldset'));
+  const total = fieldsets.length;
+  const steps = Array.from(document.querySelectorAll('.gf-step'));
+  const fill = document.getElementById('gf-progress-fill');
+  const backBtn = document.getElementById('gf-back');
+  const nextBtn = document.getElementById('gf-next');
+  const submitBtn = document.getElementById('gf-submit');
+  const errorEl = document.getElementById('gf-error');
+  const successPanel = document.getElementById('growth-success');
+  let current = 1;
+
+  function render() {
+    fieldsets.forEach((fs) => {
+      fs.classList.toggle('active', Number(fs.dataset.fieldset) === current);
+    });
+    steps.forEach((s) => {
+      const n = Number(s.dataset.step);
+      s.classList.toggle('active', n === current);
+      s.classList.toggle('completed', n < current);
+    });
+    if (fill) fill.style.width = (current / total * 100) + '%';
+    if (backBtn) backBtn.classList.toggle('hidden', current === 1);
+    if (nextBtn) nextBtn.classList.toggle('hidden', current === total);
+    if (submitBtn) submitBtn.classList.toggle('hidden', current !== total);
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      if (current < total) {
+        current += 1;
+        render();
+        if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      if (current > 1) {
+        current -= 1;
+        render();
+      }
+    });
+  }
+
+  form.querySelectorAll('.choice-group').forEach((group) => {
+    const otherId = group.dataset.other;
+    const otherInput = otherId ? document.getElementById(otherId) : null;
+    group.querySelectorAll('.choice-btn').forEach((btn) => {
+      const input = btn.querySelector('input');
+      input.addEventListener('change', () => {
+        group.querySelectorAll('.choice-btn').forEach((b) => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+        if (otherInput) {
+          const isOther = input.value === 'Other';
+          otherInput.classList.toggle('hidden', !isOther);
+          if (!isOther) otherInput.value = '';
+        }
+      });
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (errorEl) errorEl.classList.add('hidden');
+
+    const nameInput = document.getElementById('gf-name');
+    const emailInput = document.getElementById('gf-email');
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((emailInput.value || '').trim());
+
+    if (!nameInput.value.trim() || !emailOk) {
+      current = total;
+      render();
+      if (errorEl) errorEl.classList.remove('hidden');
+      return;
+    }
+
+    const data = {};
+    new FormData(form).forEach((value, key) => { data[key] = value; });
+    console.log('Growth plan intake submission:', data);
+
+    form.classList.add('hidden');
+    if (successPanel) successPanel.classList.remove('hidden');
+  });
+
+  render();
 }
 
 function initHeroLottie() {
@@ -276,6 +370,13 @@ function initMobileNav() {
   });
 
   panel.appendChild(list);
+
+  const gfBtn = document.querySelector('.btn-getstarted');
+  if (gfBtn) {
+    const gfClone = gfBtn.cloneNode(true);
+    gfClone.className = 'btn btn-getstarted mobile-contact-btn';
+    panel.appendChild(gfClone);
+  }
 
   const divider = document.createElement('div');
   divider.className = 'mobile-nav-divider';
