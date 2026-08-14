@@ -6,7 +6,102 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initThemeToggle();
   initHeroLottie();
+  initDvdBounce();
 });
+
+function initDvdBounce() {
+  const box = document.getElementById('dvd-bounce');
+  if (!box) return;
+
+  const logos = Array.from(box.querySelectorAll('.dvd-logo'));
+  if (!logos.length) return;
+
+  const colors = ['#4F46E5', '#E5468C', '#22C55E', '#F59E0B', '#06B6D4'];
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function layoutStatic() {
+    const w = box.clientWidth;
+    const cols = Math.ceil(Math.sqrt(logos.length));
+    const rows = Math.ceil(logos.length / cols);
+    const cellW = w / cols;
+    const cellH = box.clientHeight / rows;
+    logos.forEach((el, i) => {
+      const col = i % cols;
+      const row = Math.floor(i / cols);
+      const size = el.offsetWidth;
+      const x = col * cellW + (cellW - size) / 2;
+      const y = row * cellH + (cellH - size) / 2;
+      el.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+    });
+  }
+
+  if (prefersReduced) {
+    layoutStatic();
+    window.addEventListener('resize', layoutStatic);
+    return;
+  }
+
+  const state = logos.map(() => ({ x: 0, y: 0, vx: 0, vy: 0 }));
+
+  function place() {
+    const w = box.clientWidth;
+    const h = box.clientHeight;
+    logos.forEach((el, i) => {
+      const size = el.offsetWidth;
+      const s = state[i];
+      s.x = Math.random() * Math.max(1, w - size);
+      s.y = Math.random() * Math.max(1, h - size);
+      const speed = 1.3 + Math.random() * 0.9;
+      const angle = Math.random() * Math.PI * 2;
+      s.vx = Math.cos(angle) * speed;
+      s.vy = Math.sin(angle) * speed;
+      el.style.transform = 'translate(' + s.x + 'px, ' + s.y + 'px)';
+    });
+  }
+
+  function tick() {
+    const w = box.clientWidth;
+    const h = box.clientHeight;
+    logos.forEach((el, i) => {
+      const s = state[i];
+      const size = el.offsetWidth;
+      s.x += s.vx;
+      s.y += s.vy;
+
+      let bounced = false;
+      if (s.x <= 0) { s.x = 0; s.vx = Math.abs(s.vx); bounced = true; }
+      else if (s.x >= w - size) { s.x = w - size; s.vx = -Math.abs(s.vx); bounced = true; }
+
+      if (s.y <= 0) { s.y = 0; s.vy = Math.abs(s.vy); bounced = true; }
+      else if (s.y >= h - size) { s.y = h - size; s.vy = -Math.abs(s.vy); bounced = true; }
+
+      if (bounced) {
+        el.style.borderColor = colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      el.style.transform = 'translate(' + s.x + 'px, ' + s.y + 'px)';
+    });
+    requestAnimationFrame(tick);
+  }
+
+  place();
+  requestAnimationFrame(tick);
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const w = box.clientWidth;
+      const h = box.clientHeight;
+      logos.forEach((el, i) => {
+        const s = state[i];
+        const size = el.offsetWidth;
+        s.x = Math.min(s.x, Math.max(0, w - size));
+        s.y = Math.min(s.y, Math.max(0, h - size));
+      });
+    }, 150);
+  });
+}
 
 function initHeroLottie() {
   const el = document.getElementById('hero-lottie');
