@@ -61,11 +61,12 @@
     });
   }
 
-  /* ---------- Real case studies (appear only if added in config.js) ---------- */
-  var cs = document.getElementById("caseStudies");
-  if (cs && cfg.caseStudies && cfg.caseStudies.length) {
-    cs.hidden = false;
-    cfg.caseStudies.forEach(function (k) {
+  /* ---------- Real results (appear only if added in config.js) ---------- */
+  function renderResults(id, list) {
+    var box = document.getElementById(id);
+    if (!box || !list || !list.length) return;
+    box.hidden = false;
+    list.forEach(function (k) {
       var c = el("article", "card reveal");
       c.appendChild(el("span", "badge badge-ok", k.evidenceLabel || "Verified"));
       c.appendChild(el("h3", null, k.title));
@@ -76,13 +77,15 @@
         c.appendChild(img);
       }
       if (k.link) {
-        var a = el("a", "text-link", "View source");
+        var a = el("a", "text-link", "View channel");
         a.href = k.link; a.target = "_blank"; a.rel = "noopener";
         c.appendChild(a);
       }
-      cs.appendChild(c);
+      box.appendChild(c);
     });
   }
+  renderResults("twitchResults", cfg.twitchResults);
+  renderResults("caseStudies", cfg.caseStudies);
 
   /* ---------- Mobile menu ---------- */
   var btn = document.getElementById("menuBtn");

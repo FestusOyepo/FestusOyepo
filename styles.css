@@ -180,3 +180,6 @@ details p{color:var(--muted);margin:0 0 18px}
   .cta-row .btn{width:100%}
   .card,.audit-box{padding:22px}
 }
+
+.grp{margin:34px 0 4px;font-size:1.25rem}
+.grp-note{margin:0 0 16px;max-width:70ch}
