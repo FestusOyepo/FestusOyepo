@@ -183,3 +183,7 @@ details p{color:var(--muted);margin:0 0 18px}
 
 .grp{margin:34px 0 4px;font-size:1.25rem}
 .grp-note{margin:0 0 16px;max-width:70ch}
+.cards>*{min-width:0}
+.badge-ok{white-space:normal;line-height:1.35;border-radius:14px;align-self:flex-start}
+.card img{max-width:100%;height:auto}
+@media (max-width:960px){.cards-2,.cards-3{grid-template-columns:minmax(0,1fr)}}
