@@ -104,6 +104,7 @@ window.SITE_CONFIG = {
        link: "https://example.com"          // optional
      }
   --------------------------------------------------------------- */
+  /* PAUSED until each channel link and result is verified with Festus:
   twitchResults: [
     {
       title: "Twitch Partner Program invitation",
@@ -127,6 +128,8 @@ window.SITE_CONFIG = {
       link: "https://www.twitch.tv/acrethedog"
     }
   ],
+  */
+  twitchResults: [],
   caseStudies: [
     {
       title: "3.1M views in 28 days",

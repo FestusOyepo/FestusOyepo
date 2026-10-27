@@ -85,6 +85,8 @@
     });
   }
   renderResults("twitchResults", cfg.twitchResults);
+  var tg = document.getElementById("twitchGroup");
+  if (tg && cfg.twitchResults && cfg.twitchResults.length) tg.hidden = false;
   renderResults("caseStudies", cfg.caseStudies);
 
   /* ---------- Mobile menu ---------- */
