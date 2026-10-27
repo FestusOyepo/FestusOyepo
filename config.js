@@ -55,32 +55,29 @@ window.SITE_CONFIG = {
        link: "https://example.com"          // optional
      }
   --------------------------------------------------------------- */
-  /* PAUSED until each channel link and result is verified with Festus:
   twitchResults: [
     {
       title: "Twitch Partner Program invitation",
       summary: "A client channel received an official invite to the Twitch Partner Program, which unlocks Partner-exclusive tools and revenue features.",
-      evidenceLabel: "Past project · Twitch email screenshot",
+      evidenceLabel: "Client result · Twitch email screenshot",
       evidenceUrl: "assets/portfolio/09-twitch-partner-invite.jpeg",
       link: "https://www.twitch.tv/sirmaza"
     },
     {
       title: "Leveled up to Twitch Affiliate",
       summary: "Another client channel reached Twitch Affiliate status, which unlocks ad revenue, subscriptions and Bits.",
-      evidenceLabel: "Past project · Twitch email screenshot",
+      evidenceLabel: "Client result · Twitch email screenshot",
       evidenceUrl: "assets/portfolio/10-twitch-affiliate-levelup.jpeg",
       link: "https://www.twitch.tv/deansocool"
     },
     {
       title: "357 unique viewers in one stream",
       summary: "A single 7-hour broadcast on a client channel reached 357 unique viewers and 54 unique chatters, with 8 new subscribers and 24 new followers.",
-      evidenceLabel: "Past project · Twitch stream summary",
+      evidenceLabel: "Client result · Twitch stream summary",
       evidenceUrl: "assets/portfolio/11-twitch-stream-stats.jpeg",
       link: "https://www.twitch.tv/acrethedog"
     }
   ],
-  */
-  twitchResults: [],
   caseStudies: [
     {
       title: "3.1M views in 28 days",
