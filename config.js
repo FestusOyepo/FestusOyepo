@@ -21,25 +21,25 @@ window.SITE_CONFIG = {
   --------------------------------------------------------------- */
   sampleAudits: [
     {
-      topic: "Stream title",
-      issue: "The title only says \"chill stream\", so someone browsing a category can't tell what game, mode or hook to expect.",
-      recommendation: "Name the game or activity and add one specific reason to click, such as a goal, a challenge or a theme for the session.",
-      why: "Browsing viewers decide from the thumbnail and title in a second. Specific titles help the right viewers recognise your stream as theirs.",
-      next: "Rewrite your next three titles using: game, what's happening, who it's for."
-    },
-    {
-      topic: "Categories and tags",
-      issue: "The channel switches between several very large categories and uses broad tags, so it competes with thousands of streams at once.",
-      recommendation: "Choose one or two core games plus accurate tags (language, play style, community) and test a smaller category that fits your content.",
+      topic: "Category and tag positioning",
+      issue: "The channel streams in a few very large categories with broad tags, so it competes with thousands of streams and is hard for the right viewers to find.",
+      recommendation: "Pick one or two core games, add accurate tags (language, play style, community) and test a smaller category that fits the content.",
       why: "In a smaller, relevant category a stream is easier to find. This is a hypothesis to test, not a promise of more viewers.",
-      next: "Pick one core category for two weeks and note what changes in who joins chat."
+      next: "Choose one core category for two weeks and note who joins chat."
     },
     {
-      topic: "How new viewers find you",
-      issue: "A first-time visitor lands on the channel with no clear starting point, so they can't tell what the channel is about or why to follow.",
-      recommendation: "Add a short 'start here' highlight, a clear About section and a pinned goal, and use a consistent schedule so people know when to return.",
-      why: "New viewers decide quickly. A clear first impression gives the right people a reason to follow instead of leaving.",
-      next: "Write one sentence that says who the channel is for, and put it at the top of your About section."
+      topic: "Raid and network outreach",
+      issue: "The streamer ends every stream without raiding anyone and has no connections with similar-sized channels, so no new audiences are meeting the channel.",
+      recommendation: "Build a short list of streamers in the same niche and size range, raid them regularly and connect with their communities before asking for anything back.",
+      why: "Raids and genuine community ties put a channel in front of viewers who already like similar content.",
+      next: "Shortlist five channels in your niche and raid one at the end of your next stream."
+    },
+    {
+      topic: "Stream title and discovery",
+      issue: "The title only says \"chill stream\", so someone browsing a category can't tell what game, mode or hook to expect.",
+      recommendation: "Lead with the game and one specific reason to click, such as a goal, a challenge or a theme for the session.",
+      why: "Browsing viewers decide from the title in a second. Specific titles help the right viewers recognise the stream as theirs.",
+      next: "Rewrite your next three titles using: game, what's happening, who it's for."
     }
   ],
 
