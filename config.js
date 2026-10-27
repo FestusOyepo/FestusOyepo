@@ -55,6 +55,7 @@ window.SITE_CONFIG = {
        link: "https://example.com"          // optional
      }
   --------------------------------------------------------------- */
+  /* HIDDEN until each channel and screenshot is matched (Festus decision, Oct 27):
   twitchResults: [
     {
       title: "Twitch Partner Program invitation",
@@ -78,31 +79,33 @@ window.SITE_CONFIG = {
       link: "https://www.twitch.tv/acrethedog"
     }
   ],
+  */
+  twitchResults: [],
   caseStudies: [
     {
       title: "3.1M views in 28 days",
-      summary: "A client channel reached 3.1M views and 37.5K watch hours in one month, with a single-day peak above 270K views.",
+      summary: "A client channel reached 3.1M views and 37.5K watch hours in one month, with a single-day peak above 270K views. My role: channel promotion and growth support.",
       evidenceLabel: "Client result · YouTube Analytics screenshot",
       evidenceUrl: "assets/portfolio/01-views-3-1m.jpeg",
       link: "https://www.youtube.com/@Rizpol"
     },
     {
       title: "217K views from a cold start",
-      summary: "A relaunched channel recorded 217.9K views and 1.2K watch hours in 28 days.",
+      summary: "A relaunched channel recorded 217.9K views and 1.2K watch hours in 28 days. My role: channel promotion and growth support.",
       evidenceLabel: "Client result · YouTube Analytics screenshot",
       evidenceUrl: "assets/portfolio/05-views-217k.jpeg",
       link: "https://www.youtube.com/@TheHungryCreativePod"
     },
     {
       title: "YouTube Partner Program approval",
-      summary: "A client channel was approved for monetization in the YouTube Partner Program.",
+      summary: "A client channel was approved for monetization in the YouTube Partner Program. My role: channel promotion and growth support.",
       evidenceLabel: "Client result · YouTube Studio screenshot",
       evidenceUrl: "assets/portfolio/02-partner-approval.jpeg",
       link: "https://www.youtube.com/@hOlyhexOr"
     },
     {
       title: "Monthly ad revenue: $433 to $543",
-      summary: "A monetized client channel's payout grew from $433 in June to $543 in July.",
+      summary: "A monetized client channel's payout grew from $433 in June to $543 in July. My role: channel promotion and growth support.",
       evidenceLabel: "Client result · payment screenshot",
       evidenceUrl: "assets/portfolio/03-payment-growth.jpeg",
       link: "https://www.youtube.com/@KheZu"
