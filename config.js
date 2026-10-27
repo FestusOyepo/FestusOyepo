@@ -12,7 +12,7 @@ window.SITE_CONFIG = {
      Turnaround and revision limits have NOT been confirmed.
      Leave these empty ("") and the site says they are agreed in
      writing before work starts. Fill them in once you decide,
-     e.g. revisions: "2 rounds of revisions", turnaround: "within 5 days of receiving footage".
+     e.g. revisions: "2 rounds of revisions", turnaround: "within 3 days of ordering".
   --------------------------------------------------------------- */
   packages: [
     {
@@ -27,39 +27,7 @@ window.SITE_CONFIG = {
         "Specific recommendations on positioning, presentation and discoverability",
         "A prioritized action plan, most useful changes first"
       ],
-      notIncluded: "Does not include editing, and does not guarantee growth.",
-      revisions: "",
-      turnaround: ""
-    },
-    {
-      id: "clips3",
-      tag: "Short-form",
-      name: "Three-Clip Editing Pack",
-      price: 75,
-      clips: 3,
-      summary: "Three short vertical clips cut from stream footage you provide.",
-      includes: [
-        "3 edited short-form clips from your footage",
-        "Vertical formatting for TikTok, YouTube Shorts and Instagram Reels",
-        "Captions, hooks and basic editing"
-      ],
-      notIncluded: "Footage is supplied by you. No guaranteed views or growth.",
-      revisions: "",
-      turnaround: ""
-    },
-    {
-      id: "clips6",
-      tag: "Short-form",
-      name: "Six-Clip Editing Pack",
-      price: 150,
-      clips: 6,
-      summary: "Six short vertical clips, edited to the same standard as the three-clip pack.",
-      includes: [
-        "6 edited short-form clips from your footage",
-        "Same editing standard as the three-clip pack",
-        "Vertical formatting for TikTok, YouTube Shorts and Instagram Reels"
-      ],
-      notIncluded: "Footage is supplied by you. No guaranteed views or growth.",
+      notIncluded: "Does not guarantee growth. Promotion work is quoted separately after the audit.",
       revisions: "",
       turnaround: ""
     }
@@ -84,11 +52,11 @@ window.SITE_CONFIG = {
       next: "Pick one core category for two weeks and note what changes in who joins chat."
     },
     {
-      topic: "Reusing stream moments",
-      issue: "Good moments end at the stream's end: nothing is posted on short-form platforms, so new people can't meet the channel before a live show.",
-      recommendation: "Pick two moments per week, cut them to a clear vertical clip with captions, and end each with a pointer to your channel.",
-      why: "Short clips give people a low-effort way to see your personality before they ever open Twitch.",
-      next: "Mark three funny or exciting moments from your last stream and clip them."
+      topic: "How new viewers find you",
+      issue: "A first-time visitor lands on the channel with no clear starting point, so they can't tell what the channel is about or why to follow.",
+      recommendation: "Add a short 'start here' highlight, a clear About section and a pinned goal, and use a consistent schedule so people know when to return.",
+      why: "New viewers decide quickly. A clear first impression gives the right people a reason to follow instead of leaving.",
+      next: "Write one sentence that says who the channel is for, and put it at the top of your About section."
     }
   ],
 
