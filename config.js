@@ -14,24 +14,7 @@ window.SITE_CONFIG = {
      writing before work starts. Fill them in once you decide,
      e.g. revisions: "2 rounds of revisions", turnaround: "within 3 days of ordering".
   --------------------------------------------------------------- */
-  packages: [
-    {
-      id: "audit",
-      tag: "Audit",
-      name: "Detailed Twitch Channel Audit",
-      price: 25,
-      clips: 0,
-      summary: "A structured, written review of your Twitch channel with a prioritized plan you can act on.",
-      includes: [
-        "Structured review of your public Twitch channel",
-        "Specific recommendations on positioning, presentation and discoverability",
-        "A prioritized action plan, most useful changes first"
-      ],
-      notIncluded: "Does not guarantee growth. Promotion work is quoted separately after the audit.",
-      revisions: "",
-      turnaround: ""
-    }
-  ],
+  packages: [],
 
   /* ---- Sample audits (illustrative, NOT client work) ----------
      Add, remove or reword freely. Keep the "Sample" label.
